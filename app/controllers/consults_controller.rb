@@ -8,13 +8,17 @@ class ConsultsController < ApplicationController
 	end
 
 	def new
+		role = current_user.role
+		if role != "doctor"
+			redirect_to root_path
+		end
 	end
 
 	def create
  		@consult = Consult.new(consult_params)
-  		
+
   		@consult.save
-  		redirect_to @consult		
+  		redirect_to @consult
 	end
 
 	private
