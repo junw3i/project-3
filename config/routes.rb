@@ -5,8 +5,14 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get 'patient/dashboard', to: 'patient#index'
-
   resources :consults
+  resources :patient do
+    resources :consults
+  end
+
+
+
+  get 'doctors/dashboard', to: 'doctors#index'
 
   root 'welcome#index'
 end

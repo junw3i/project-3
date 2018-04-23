@@ -4,17 +4,29 @@ class ConsultsController < ApplicationController
 	end
 
 	def show
-		@consult = Consult.find(params[:id])
+		if (defined?(current_user)).nil?
+			redirect_to '/'
+		else
+			@role = current_user.role
+			@consult = Consult.find(params[:id])
+			if @role != 'doctor' && current_user.id != @consult.user_id
+				redirect_to '/'
+			end
+		end	
 	end
 
 	def new
+		role = current_user.role
+		if role != "doctor"
+			redirect_to root_path
+		end
 	end
 
 	def create
  		@consult = Consult.new(consult_params)
-  		
+
   		@consult.save
-  		redirect_to @consult		
+  		redirect_to @consult
 	end
 
 	private

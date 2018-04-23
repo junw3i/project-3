@@ -1,1 +1,18 @@
-Hello dashboard
+
+<h1>Hello <%= @first_name %></h1>
+ 
+<table>
+  <tr>
+    <th>Visit id</th>
+    <th>Consultation</th>
+    <th></th>
+  </tr>
+ 
+  <% @output.each do |consult| %>
+    <tr>
+      <td><%= consult.id %></td>
+      <td><%= consult.history %></td>
+      <td><%= link_to 'Show', consult_path(consult) %></td>
+    </tr>
+  <% end %>
+</table>

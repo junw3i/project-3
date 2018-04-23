@@ -3,10 +3,13 @@
   <%= @consult.user_id %>
 </p>
  
-<p>
-  <strong>Consultation:</strong>
-  <%= @consult.history %>
-</p>
+<% if @role == 'doctor' %>
+  <p>
+    <strong>Consultation:</strong>
+    <%= @consult.history %>
+  </p>
+<% end %>
+
 
 <p>
   <strong>Prescription:</strong>

@@ -1,0 +1,13 @@
+<h1>Patients Dashboard</h1>
+
+<% @patients.each do |patient| %>
+  <div class="">
+    id: <%= patient.id %>
+    <br>
+    name: <%= link_to patient.first_name, patient_path(patient.id) %>
+    <br>
+    <%= link_to 'Consult', new_patient_consult_path(patient.id) %>
+  </div>
+
+  <br>
+<% end %>
