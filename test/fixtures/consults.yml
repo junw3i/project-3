@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  history: MyText
+  prescription: MyText
+  mc: 1
+  doctor_id: 1
+
+two:
+  user: two
+  history: MyText
+  prescription: MyText
+  mc: 1
+  doctor_id: 1

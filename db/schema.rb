@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_20_081856) do
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2018_04_21_020312) do
+=======
+ActiveRecord::Schema.define(version: 2018_04_21_094649) do
+>>>>>>> a50d5a1dbd5e7d52f486f841c59a509bf04f429d
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "consults", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "history"
+    t.text "prescription"
+    t.integer "mc"
+    t.integer "doctor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_consults_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +43,16 @@ ActiveRecord::Schema.define(version: 2018_04_20_081856) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "role", default: "patient"
+    t.string "id_number"
+    t.string "gender"
+    t.integer "mobile"
+    t.boolean "is_live", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "consults", "users"
 end

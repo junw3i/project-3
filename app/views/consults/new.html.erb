@@ -1,0 +1,41 @@
+
+
+<h1> Patient History Taking </h1>
+<%= form_with scope: :consult, url: consults_path, local: true do |form| %>
+ 
+  <p>
+    <%= form.label :user_id %><br>
+    <%= form.text_field :user_id %>
+  </p>
+
+  <p>
+    <%= form.label :history %><br>
+    <%= form.text_area :history %>
+  </p>
+
+  <p>
+    <%= form.label :prescription %><br>
+    <%= form.text_area :prescription %>
+  </p>
+
+   <p>
+    <%= form.label :mc %><br>
+    <%= form.text_field :mc %>
+  </p>
+
+  <p>
+    <%= form.label :doctor_id %><br>
+    <%= form.text_field :doctor_id %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+      <iframe
+        src="https://demo.mediasoup.org/?roomId=pms88"
+        width=640
+        height=480
+        allow="microphone; camera"
+      ></iframe>
