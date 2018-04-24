@@ -2,38 +2,84 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+<div class="container">
+  <div class="row">
+    <div class="input-field col s6">
+    <i class="material-icons prefix">account_circle</i>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="input-field col s6">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+<div class="row">
+  <div class="input-field col s12">
+  <i class="material-icons prefix">perm_identity</i>
+    <%= f.label :id_number, value: 'NRIC Number/FIN' %>
+    <%= f.text_field :id_number %>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="input-field col s12">
+    <i class="material-icons prefix">email</i>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="row">
+    <div class="input-field col s12">
+    <i class="material-icons prefix">phone</i>
+      <%= f.label :mobile %>
+      <%= f.text_field :mobile %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+  <div class="row">
+    <div class="input-field col s6">
+    <i class="material-icons prefix">lock</i>
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+    </div>
+    <div class="input-field col s6">
+    <i class="material-icons prefix">lock</i>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+  <div class="row">
+  <h4>Please select your gender</h4>
+    <p>
+      <%= f.radio_button(:gender, "male") %>
+      <%= f.label(:gender_male, "Male") %>
+    </p>
+    <p>
+      <%= f.radio_button(:gender, "female") %>
+      <%= f.label(:gender_female, "Female") %>
+    </p>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row">
+    <button class="actions btn waves-effect waves-light" type="submit" name="action">
+    <i class="material-icons right">send</i>
+      <%= f.submit "Sign up" %>
+    </button>
+  <% end %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="row">
+    <h5>Already a user? Log in here!</h5>
+    <button class="btn waves-effect waves-light black" name="action">
+      <%= render "devise/shared/links" %>
+    </button>
+  </div>
+</div>

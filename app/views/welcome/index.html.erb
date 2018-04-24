@@ -1,1 +1,30 @@
+
 <h1>Hello, Rails!</h1>
+
+<% if user_signed_in? %>
+<%= link_to 'log out', destroy_user_session_path, method: :delete %>
+<% end %>
+
+For ease of access links below:
+<p>
+<a href='/users/sign_in'>Log in</a></p>
+
+<p><a href='/patient/dashboard'>Patient Dashboard</a>
+This is a conditional view as well
+
+<p>
+Nobody is suppose to see this, it will be removed when pushed into production
+<a href='/consults'>List of all consults</a><br>
+
+Conditional view for consults is done.
+If not logged in cannot view '/consults/3'
+
+doctor can see all, patient see own consult.
+</p>
+
+
+
+<p>
+<a href='/consults/new'>Doctor's view</a></p>
+
+
