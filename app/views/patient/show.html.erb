@@ -1,25 +1,24 @@
-<h1>Patient Info</h1>
+<h1 class="center-align">Patient Info</h1>
 
-<div class="">
-  ID: <%= @patient.id %>
-  <br>
-  Name: <%= @patient.first_name %>
-  <br>
-  <h3>Consulation History</h3>
-
+<ul class="collection with-header">
+  <li class="collection-item"><h3>Consulation History</h3>
+  <p>ID: <%= @patient.id %> <br>
+  Name: <%= @patient.first_name %> <%= @patient.last_name %> <br>
+  NRIC Number/FIN: <%= @patient.id_number %> <br>
+  Gender: <%= @patient.gender %>
+  </p>
+</li>
   <% @patient.consult.each do |consultation| %>
-    <div class="">
+    <li class="collection-item">
       <p>CONSULATION ID: <%= consultation.id %></p>
       <p>HISTORY: <%= consultation.history %></p>
       <p>PRESCRIPTION: <%= consultation.prescription %></p>
       <p>MC GIVEN: <%= consultation.mc %> DAYS</p>
       <p>CONSULTED BY: <%= consultation.doctor.first_name %></p>
       <p>CONSULTED ON: <%= consultation.created_at %></p>
-      --------------------------
-
-    </div>
+    </li>
 
   <% end %>
-
-  etc, etc
-</div>
+  </ul>
+<br>
+  <%= link_to 'Back', doctors_dashboard_path %>
