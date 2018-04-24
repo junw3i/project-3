@@ -15,10 +15,10 @@
   <body>
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">PMS</a>
+      <%= link_to 'PMS', root_path, id: 'brand-logo' %>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Dashboard</a></li>
+        <li><%= link_to 'Dashboard', dashboard_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Change Password", edit_user_registration_path %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
