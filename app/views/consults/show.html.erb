@@ -1,27 +1,39 @@
-<p>
-  <strong>Patien Id:</strong>
-  <%= @consult.user_id %>
-</p>
- 
-<% if @role == 'doctor' %>
+  <ul class="collection with-header">
+    <li class="collection-item"><h3 class="center-align">Consultation Summary</h3></li>
+    <li class="collection-item">   
   <p>
-    <strong>Consultation:</strong>
-    <%= @consult.history %>
+    <strong>Patient ID:</strong>
+    <%= @consult.user_id %>
   </p>
-<% end %>
+  </li>
 
+  <% if @role == 'doctor' %>
 
-<p>
-  <strong>Prescription:</strong>
-  <%= @consult.prescription %>
-</p>
+  <li class="collection-item">
+    <p>
+      <strong>Consultation:</strong>
+      <%= @consult.history %>
+    </p>
+  <% end %>
+    </li>
 
-<p>
-  <strong>Number of days MC:</strong>
-  <%= @consult.mc %>
-</p>
+<li class="collection-item">
+  <p>
+    <strong>Prescription:</strong>
+    <%= @consult.prescription %>
+  </p>
+</li>
 
-<p>
-  <strong>Doctor Id:</strong>
-  <%= @consult.doctor_id %>
-</p>
+<li class="collection-item">
+  <p>
+    <strong>Number of days MC:</strong>
+    <%= @consult.mc %>
+  </p>
+  </li>
+
+<li class="collection-item">
+  <p>
+    <strong>Doctor ID:</strong>
+    <%= @consult.doctor_id %>
+  </p>
+  </li>
