@@ -12,13 +12,20 @@ class ConsultsController < ApplicationController
 			if @role != 'doctor' && current_user.id != @consult.user_id
 				redirect_to '/'
 			end
-		end	
+		end
 	end
 
 	def new
-		role = current_user.role
-		if role != "doctor"
+		if (defined?(current_user)).nil?
 			redirect_to root_path
+		elsif (params[:patient_id]).nil?
+			redirect_to root_path
+		else
+			@patient = User.find(params[:patient_id])
+			@user = current_user
+			if @user.role != "doctor"
+				redirect_to root_path
+			end
 		end
 	end
 
