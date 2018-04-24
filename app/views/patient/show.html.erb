@@ -13,7 +13,7 @@
       <p>HISTORY: <%= consultation.history %></p>
       <p>PRESCRIPTION: <%= consultation.prescription %></p>
       <p>MC GIVEN: <%= consultation.mc %> DAYS</p>
-      <p>CONSULTED BY: <%= consultation.doctor_id %></p>
+      <p>CONSULTED BY: <%= consultation.doctor.first_name %></p>
       <p>CONSULTED ON: <%= consultation.created_at %></p>
       --------------------------
 
