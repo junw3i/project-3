@@ -1,0 +1,28 @@
+<% if @role=="doctor" %>
+  <h2 class="center-align">Patient List</h2>
+  <ul class="collection">
+    <% @patients.each do |patient| %>
+        <li class="collection-item avatar">
+        <i class="material-icons circle">perm_identity</i>
+        <span>ID: <%= patient.id %></span>
+        <p>Name: <%= link_to patient.first_name, patient_path(patient.id) %> <br>
+        <%= link_to 'Consult', new_patient_consult_path(patient.id) %> </p>
+        </li>
+    <% end %>
+  </ul>
+
+<% elsif %>
+  <h2 class="center-align">Consultation History</h2>
+    <ul class="collection">
+      <% @output.each do |consult| %>
+        <li class="collection-item avatar">
+        <i class="material-icons circle">description</i>
+        <span>Visit ID: <%= consult.id %></span>
+        <p><%= link_to consult.created_at, consult_path(consult) %></p>
+        </li>
+      <% end %>
+    </ul>
+    <br>
+<% end %>
+
+  <%= link_to 'Back', root_path %>
