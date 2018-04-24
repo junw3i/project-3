@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true, format: { with: /\A[a-zA-Z]+\z/,
     message: "only allows letters" }
   validates :mobile, length: { is: 8 }, numericality: { only_integer: true }
+  validates :gender, presence: true
   validates :id_number, presence: true, length: { is: 9 }
 
   has_many :consult
