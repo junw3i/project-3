@@ -1,7 +1,7 @@
 <h1 class="center-align">Patient Info</h1>
 
 <ul class="collection with-header">
-  <li class="collection-item"><h3>Consulation History</h3>
+  <li class="collection-item z-depth-3"><h3>Consulation History</h3>
   <p>ID: <%= @patient.id %> <br>
   Name: <%= @patient.first_name %> <%= @patient.last_name %> <br>
   NRIC Number/FIN: <%= @patient.id_number %> <br>
@@ -9,7 +9,7 @@
   </p>
 </li>
   <% @patient.consult.each do |consultation| %>
-    <li class="collection-item">
+    <li class="collection-item z-depth-3">
       <p>CONSULATION ID: <%= consultation.id %></p>
       <p>HISTORY: <%= consultation.history %></p>
       <p>PRESCRIPTION: <%= consultation.prescription %></p>
