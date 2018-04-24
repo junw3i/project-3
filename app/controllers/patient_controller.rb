@@ -1,7 +1,7 @@
 class PatientController < ApplicationController
 
 	def index
-		# check if user is logined
+		# check if user is logged in
 		if (defined?(current_user)).nil?
 			redirect_to '/'
 		else

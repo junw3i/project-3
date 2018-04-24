@@ -4,14 +4,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'welcome/index'
 
+  get 'patient/dashboard', to: 'patient#index'
+  get 'doctors/dashboard', to: 'doctors#index'
+
   resources :consults
   resources :patient do
     resources :consults
   end
 
-  get 'patient/dashboard', to: 'patient#index'
-
-  get 'doctors/dashboard', to: 'doctors#index'
-
-  root 'welcome#index'
 end
