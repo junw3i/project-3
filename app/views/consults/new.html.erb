@@ -1,41 +1,69 @@
+<h1 class="center-align">Patient History Taking</h1>
 
-
-<h1> Patient History Taking </h1>
 <%= form_with scope: :consult, url: consults_path, local: true do |form| %>
- 
-  <p>
-    <%= form.label :user_id %><br>
-    <%= form.text_field :user_id %>
-  </p>
 
-  <p>
-    <%= form.label :history %><br>
-    <%= form.text_area :history %>
-  </p>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.text_field :user_id, :readonly => true, value: :user_id %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :prescription %><br>
-    <%= form.text_area :prescription %>
-  </p>
 
-   <p>
-    <%= form.label :mc %><br>
-    <%= form.text_field :mc %>
-  </p>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.label :history %>
+      <%= form.text_area :history, class: 'materialize-textarea' %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :doctor_id %><br>
-    <%= form.text_field :doctor_id %>
-  </p>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.label :prescription %>
+      <%= form.text_area :prescription, class: 'materialize-textarea' %>
+    </div>
+  </div>
 
-  <p>
+  <div class="row">
+    <div class="input-field col s6">
+    <label for="date-field">MC from:</label>
+    <input type="text" class="datepicker">
+    </div>
+    <div class="input-field col s6">
+    <label for="date-field">MC to:</label>
+    <input type="text" class="datepicker">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.text_field :doctor_id, :hidden => true %>
+    </div>
+  </div>
+
+  <div class="row">
+  <a class="waves-effect waves-light btn">
+  <i class="material-icons left">save</i>
     <%= form.submit %>
-  </p>
 <% end %>
+</a>
+  </div>
 
+  <div class="row">
       <iframe
         src="https://demo.mediasoup.org/?roomId=pms88"
         width=640
         height=480
         allow="microphone; camera"
       ></iframe>
+  </div>
+
+
+<script>
+$(document).ready(function(){
+  let day = new Date();
+$('.datepicker').datepicker({
+  defaultDate: day,
+  setDefaultDate: true
+});
+});
+</script> 
