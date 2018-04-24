@@ -28,7 +28,6 @@ class ConsultsController < ApplicationController
 
 	def create
  		@consult = Consult.new(consult_params)
-
   		@consult.save
   		redirect_to @consult
 	end
