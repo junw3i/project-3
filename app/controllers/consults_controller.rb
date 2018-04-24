@@ -1,22 +1,19 @@
 class ConsultsController < ApplicationController
-	def index
-		@consults = Consult.all
-	end
 
 	def show
-		if (defined?(current_user)).nil?
-			redirect_to '/'
+		if (current_user).nil?
+			redirect_to root_path
 		else
 			@role = current_user.role
 			@consult = Consult.find(params[:id])
 			if @role != 'doctor' && current_user.id != @consult.user_id
-				redirect_to '/'
+				redirect_to root_path
 			end
 		end
 	end
 
 	def new
-		if (defined?(current_user)).nil?
+		if (current_user).nil?
 			redirect_to root_path
 		elsif (params[:patient_id]).nil?
 			redirect_to root_path
