@@ -1,18 +1,15 @@
+<h1 class="center-align">Hello <%= @first_name %></h1>
 
-<h1>Hello <%= @first_name %></h1>
- 
-<table>
-  <tr>
-    <th>Visit id</th>
-    <th>Consultation</th>
-    <th></th>
-  </tr>
- 
+  <ul class="collection">
   <% @output.each do |consult| %>
-    <tr>
-      <td><%= consult.id %></td>
-      <td><%= consult.history %></td>
-      <td><%= link_to 'Show', consult_path(consult) %></td>
-    </tr>
-  <% end %>
-</table>
+    <li class="collection-item avatar">
+    <i class="material-icons circle">description</i>
+    <span>Visit ID: <%= consult.id %></span>
+    <p><%= link_to consult.created_at, consult_path(consult) %></p>
+    </li>
+    <% end %>
+  </ul>
+
+  <br>
+
+  <%= link_to 'Back', root_path %>
