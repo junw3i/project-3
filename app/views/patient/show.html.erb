@@ -5,5 +5,21 @@
   <br>
   Name: <%= @patient.first_name %>
   <br>
+  <h3>Consulation History</h3>
+
+  <% @patient.consult.each do |consultation| %>
+    <div class="">
+      <p>CONSULATION ID: <%= consultation.id %></p>
+      <p>HISTORY: <%= consultation.history %></p>
+      <p>PRESCRIPTION: <%= consultation.prescription %></p>
+      <p>MC GIVEN: <%= consultation.mc %> DAYS</p>
+      <p>CONSULTED BY: <%= consultation.doctor.first_name %></p>
+      <p>CONSULTED ON: <%= consultation.created_at %></p>
+      --------------------------
+
+    </div>
+
+  <% end %>
+
   etc, etc
 </div>
