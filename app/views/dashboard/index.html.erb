@@ -3,7 +3,9 @@
   <div class="queue-section">
     <div class="container">
       <h3 class="center-align dashboard-title"> Queue system </h3>
-      There are currently <%= @queue_size %> patients in queue.
+      <p>There are currently <%= @queue_size %> patients in queue.</p>
+
+      <p>Click to begin consultation with <a href="/patient/<%= @first_in_line.user_id %>/consults/new">next patient</a></p></p>
     </div>
   </div>
 
