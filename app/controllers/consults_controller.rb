@@ -1,3 +1,4 @@
+require 'date'
 class ConsultsController < ApplicationController
 
 	def show
@@ -28,12 +29,16 @@ class ConsultsController < ApplicationController
 
 	def create
  		@consult = Consult.new(consult_params)
-  		@consult.save
-  		redirect_to @consult
+		start_date = DateTime.parse(@consult.mc_start)
+		end_date = DateTime.parse(@consult.mc_end)
+		mc = (end_date - start_date).ceil
+		@consult.mc = mc
+		@consult.save
+		redirect_to dashboard_path
 	end
 
 	private
   		def consult_params
-    		params.require(:consult).permit(:user_id, :history, :prescription, :mc, :doctor_id)
+    		params.require(:consult).permit(:user_id, :history, :prescription, :mc_start, :mc_end, :doctor_id)
 	  	end
 end

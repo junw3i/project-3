@@ -18,7 +18,7 @@
         <li class="collection-item avatar">
         <i class="material-icons circle">description</i>
         <span>Visit ID: <%= consult.id %></span>
-        <p><%= link_to consult.created_at, consult_path(consult) %></p>
+        <p><%= link_to consult.created_at, consult_path(consult), class: "datetime"%></p>
         </li>
       <% end %>
     </ul>

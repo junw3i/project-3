@@ -1,10 +1,13 @@
-<h1 class="center-align">Patient History Taking</h1>
+<h2 class="center-align">History Taking for <%= @patient.first_name + " " + @patient.last_name %></h2>
+
 
 <%= form_with scope: :consult, url: consults_path, local: true do |form| %>
 
   <div class="row">
     <div class="input-field col s12">
-      <%= form.text_field :user_id, :readonly => true, value: @patient.first_name + " " + @patient.last_name %>
+  
+      <%= form.text_field :user_id, :hidden => true, value: @patient.id %>
+
     </div>
   </div>
 
@@ -26,11 +29,11 @@
   <div class="row">
     <div class="input-field col s6">
     <label for="date-field">MC from:</label>
-    <input type="text" class="datepicker">
+    <input type="text" id="consult_mc_start" class="datepicker" name="consult[mc_start]">
     </div>
     <div class="input-field col s6">
     <label for="date-field">MC to:</label>
-    <input type="text" class="datepicker">
+    <input type="text" id="consult_mc_end" class="datepicker" name="consult[mc_end]">
     </div>
   </div>
 
