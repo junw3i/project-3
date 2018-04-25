@@ -1,6 +1,9 @@
 class DashboardController < ApplicationController
   def index
-    # view will depends on role
+    
+    @queue_size = Request.all.size
+    
+    # view will depends on role    
     if current_user.nil?
        redirect_to new_user_session_path
     else
