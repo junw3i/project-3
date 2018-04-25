@@ -6,6 +6,11 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#index'
 
+  post 'requests', to: 'requests#create'
+
+  #I don't understand the routes and REST methods. I used POST to cancel.
+  post 'requests/cancel', to: 'requests#destroy'
+
   resources :consults
   resources :patient do
     resources :consults

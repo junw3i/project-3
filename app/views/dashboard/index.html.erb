@@ -12,6 +12,22 @@
   </ul>
 
 <% elsif %>
+  <h2>Queue system</h2>
+
+  <p> <%= @message %> </p>
+
+  <%= form_with scope: :request, url: '/requests', local: true do |form| %>
+    <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+    <%= form.submit('Request Consultation') %>
+  <% end %>
+
+
+  <%= form_with scope: :request, url: '/requests/cancel', local: true do |form| %>
+    <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+    <%= form.submit('Cancel Request') %>
+  <% end %>
+
+
   <h2 class="center-align">Consultation History</h2>
     <ul class="collection">
       <% @output.each do |consult| %>
