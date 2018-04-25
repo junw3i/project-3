@@ -1,21 +1,21 @@
 <h2 class="center-align">History Taking for <%= @patient.first_name + " " + @patient.last_name %></h2>
 
-
+<div class="row">
 <%= form_with scope: :consult, url: consults_path, local: true do |form| %>
-
+  <div class="col s8">
+  
+  <div class="text-forms">
   <div class="row">
     <div class="input-field col s12">
-  
-      <%= form.text_field :user_id, :hidden => true, value: @patient.id %>
-
+        <%= form.text_field :user_id, :hidden => true, value: @patient.id %>
     </div>
   </div>
 
-
+<div class="container">
   <div class="row">
     <div class="input-field col s12">
-      <%= form.label :history %>
-      <%= form.text_area :history, class: 'materialize-textarea' %>
+        <%= form.label :history %>
+        <%= form.text_area :history, class: 'materialize-textarea' %>
     </div>
   </div>
 
@@ -49,9 +49,16 @@
     <%= form.submit %>
 <% end %>
 </a>
-  </div>
+      <br>
+      <br>
 
-  <div class="row">
+  <%= link_to 'Back', dashboard_path %>
+  </div>
+</div>
+</div>
+</div>
+<div class="col s4">
+  
       <iframe
         src="<%= @vid_path %>"
         width=640
@@ -60,11 +67,7 @@
       ></iframe>
   </div>
 
-  <br>
-
-  <%= link_to 'Back', dashboard_path %>
-
-
+</div>
 <script>
 $(document).ready(function(){
   let day = new Date();
