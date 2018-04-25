@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
 	def create
   		@request = Request.new(request_params)
   		@request.save
-  		redirect_to '/dashboard'
+  		redirect_to '/patient/video'
 	end
 
 
