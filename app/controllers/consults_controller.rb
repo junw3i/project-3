@@ -29,9 +29,15 @@ class ConsultsController < ApplicationController
 
 	def create
  		@consult = Consult.new(consult_params)
-		start_date = DateTime.parse(@consult.mc_start)
-		end_date = DateTime.parse(@consult.mc_end)
-		mc = (end_date - start_date).ceil
+
+		if @consult.mc_start == '' || @consult.mc_end == ''
+			mc = 0
+		else
+			start_date = DateTime.parse(@consult.mc_start)
+			end_date = DateTime.parse(@consult.mc_end)
+			mc = (end_date - start_date).ceil
+		end
+
 		@consult.mc = mc
 		@consult.save
 		redirect_to dashboard_path

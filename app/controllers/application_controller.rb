@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
         update_attrs = [:password, :password_confirmation, :current_password]
         devise_parameter_sanitizer.permit :account_update, keys: update_attrs
     end
+
+    def after_sign_in_path_for(resource_or_scope)
+      stored_location_for(resource_or_scope) || dashboard_path
+    end
 end

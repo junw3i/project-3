@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
       @role = current_user.role
       @first_name = current_user.first_name
       if @role == "doctor"
-        @patients = User.where(role: 'patient')
+        @patients = User.where(role: 'patient').order(first_name: :asc)
       elsif @role == "patient"
         @output = User.find(current_user.id).consult.order(created_at: :desc)
       end
