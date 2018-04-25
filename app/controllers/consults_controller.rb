@@ -28,8 +28,8 @@ class ConsultsController < ApplicationController
 
 	def create
  		@consult = Consult.new(consult_params)
-  		@consult.save
-  		redirect_to @consult
+		@consult.save
+		redirect_to dashboard_path
 	end
 
 	private
