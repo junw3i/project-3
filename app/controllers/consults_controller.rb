@@ -19,6 +19,7 @@ class ConsultsController < ApplicationController
 		elsif (params[:patient_id]).nil?
 			redirect_to root_path
 		else
+			@vid_path = 'https://demo.mediasoup.org/?roomId=pms' + params[:patient_id].to_s
 			@patient = User.find(params[:patient_id])
 			@user = current_user
 			if @user.role != "doctor"
