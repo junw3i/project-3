@@ -5,7 +5,7 @@
         <li class="collection-item avatar">
         <i class="material-icons circle">perm_identity</i>
         <span>ID: <%= patient.id %></span>
-        <p>Name: <%= link_to patient.first_name, patient_path(patient.id) %> <br>
+        <p>Name: <%= link_to patient.first_name + " " + patient.last_name, patient_path(patient.id) %> <br>
         <%= link_to 'Consult', new_patient_consult_path(patient.id) %> </p>
         </li>
     <% end %>
