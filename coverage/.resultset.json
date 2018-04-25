@@ -594,7 +594,6 @@
         1,
         null,
         1,
-        1,
         null,
         1,
         1,
@@ -641,6 +640,7 @@
       ],
       "/Users/cj/wdi/project-3/app/controllers/consults_controller.rb": [
         1,
+        1,
         null,
         1,
         1,
@@ -670,7 +670,10 @@
         null,
         1,
         0,
-        null,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         null,
@@ -692,34 +695,8 @@
         0,
         0,
         0,
-        null,
-        null
-      ],
-      "/Users/cj/wdi/project-3/spec/controllers/doctors_controller_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/cj/wdi/project-3/app/controllers/doctors_controller.rb": [
-        1,
-        1,
-        1,
-        1,
-        null,
         0,
         0,
-        0,
-        null,
-        0,
-        null,
-        null,
         null,
         null
       ],
@@ -871,6 +848,6 @@
         null
       ]
     },
-    "timestamp": 1524553041
+    "timestamp": 1524625868
   }
 }
