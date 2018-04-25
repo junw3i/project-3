@@ -1,18 +1,32 @@
 <% if @role=="doctor" %>
-  <h2> Queue system </h2>
-  There are currently <%= @queue_size %> patients in queue.
+  <div class="queue-section">
+    <div class="container">
+      <h3 class="center-align dashboard-title"> Queue system </h3>
+      There are currently <%= @queue_size %> patients in queue.
+    </div>
+  </div>
 
-  <h2 class="center-align">Patient List</h2>
-  <ul class="collection">
-    <% @patients.each do |patient| %>
-        <li class="collection-item avatar">
-        <i class="material-icons circle">perm_identity</i>
-        <span>ID: <%= patient.id %></span>
-        <p>Name: <%= link_to patient.first_name + " " + patient.last_name, patient_path(patient.id) %> <br>
-        <%= link_to 'Consult', new_patient_consult_path(patient.id) %> </p>
-        </li>
-    <% end %>
-  </ul>
+  <div class="patient-dashboard-section">
+    <div class="container">
+      <h3 class="center-align dashboard-title">Patient List</h3>
+      <ul class="collection">
+        <% @patients.each do |patient| %>
+            <li class="collection-item avatar flexbox">
+
+                <i class="material-icons circle">perm_identity</i>
+                <div class="patient-data">
+                  <%= link_to patient.first_name + " " + patient.last_name, patient_path(patient.id) %>
+                  <%= patient.id_number %>
+                </div>
+                <%= link_to 'Consult', new_patient_consult_path(patient.id) %>
+
+
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
 
 <% elsif %>
   <h2>Queue system</h2>

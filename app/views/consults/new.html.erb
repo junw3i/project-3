@@ -5,7 +5,7 @@
 
   <div class="row">
     <div class="input-field col s12">
-  
+
       <%= form.text_field :user_id, :hidden => true, value: @patient.id %>
 
     </div>
@@ -65,12 +65,18 @@
   <%= link_to 'Back', dashboard_path %>
 
 
-<script>
-$(document).ready(function(){
-  let day = new Date();
-$('.datepicker').datepicker({
-  defaultDate: day,
-  setDefaultDate: true
+  <script>
+  $(document).ready(function(){
+    let day = new Date();
+    $('.datepicker').datepicker({
+      defaultDate: day,
+      setDefaultDate: true
+    });
+     $('#consult_history').val('eat shit');
+    M.textareaAutoResize($('#consult_history'));
+    // $('#consult_history').trigger('autoresize');
   });
-});
-</script>
+  // $('#consult_history').val('');
+
+  //
+  </script>
