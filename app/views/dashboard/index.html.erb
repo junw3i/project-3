@@ -1,5 +1,10 @@
 <div class="container">
 <% if @role=="doctor" %>
+  <h2> Queue system </h2>
+  <p>
+  There are currently <%= @queue_size %> patients in queue.
+  Click to begin consultation with <a href="/patient/<%= @first_in_line.user_id %>/consults/new">next patient</a></p>
+  
   <h2 class="center-align">Patient List</h2>
   <ul class="collection">
     <% @patients.each do |patient| %>
@@ -13,6 +18,23 @@
   </ul>
 
 <% elsif %>
+  <h2>Queue system</h2>
+
+  <p>There are currently <%= @queue_size %> patients in queue.</p>
+
+  <div>
+  <%= form_with scope: :request, url: '/requests', local: true do |form| %>
+    <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+    <%= form.submit('Request Consultation') %>
+  <% end %></div>
+
+  <div>
+  <%= form_with scope: :request, url: '/requests/cancel', local: true do |form| %>
+    <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+    <%= form.submit('Cancel Request') %>
+  <% end %></div>
+
+
   <h2 class="center-align">Consultation History</h2>
     <ul class="collection">
       <% @output.each do |consult| %>

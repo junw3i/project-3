@@ -1,0 +1,15 @@
+  <h2>Please kindly wait for the doctor to connect... </h2>
+
+  <div class="row">
+      <iframe
+        src="<%= @vid_path %>"
+        width=640
+        height=480
+        allow="microphone; camera"
+      ></iframe>
+  </div>
+
+  <%= form_with scope: :request, url: '/requests/cancel', local: true do |form| %>
+    <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+    <%= form.submit('Cancel Request') %>
+  <% end %>
