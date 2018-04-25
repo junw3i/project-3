@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,8 +22,8 @@
   <body>
   <nav>
     <div class="nav-wrapper teal">
-      <%= link_to 'PMS', root_path, id: 'brand-logo' %>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <%= link_to 'PMS' , root_path, id: 'brand-logo' %>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><%= link_to 'Dashboard', dashboard_path %></li>
         <% if user_signed_in? %>
@@ -32,17 +33,19 @@
             <li><%= link_to 'Login', new_user_session_path %></li>
         <% end %>
       </ul>
-      <ul class="side-nav" id="mobile-demo">
+      <ul class="sidenav" id="mobile-demo">
         <li><a href="#">Dashboard</a></li>
         <li><%= link_to "Change your password", edit_user_registration_path %></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
   </nav>
-    <div class="container">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <%= yield %>
-    </div>
+    <script>
+      $(document).ready(function(){
+    $('.sidenav').sidenav();
+    </script>
   </body>
 </html>
