@@ -33,17 +33,16 @@
   <h2>Queue system</h2>
 
   <p>There are currently <%= @queue_size %> patients in queue.</p>
-
   <div>
   <%= form_with scope: :request, url: '/requests', local: true do |form| %>
     <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
-    <%= form.submit('Request Consultation') %>
+    <a class="waves-effect waves-light btn-small"><%= form.submit('Request Consultation') %></a>
   <% end %></div>
-
+<br>
   <div>
   <%= form_with scope: :request, url: '/requests/cancel', local: true do |form| %>
     <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
-    <%= form.submit('Cancel Request') %>
+    <a class="waves-effect waves-light btn-small"><%= form.submit('Cancel Request') %></a>
   <% end %></div>
 
 
