@@ -1,11 +1,13 @@
-<h2 class="center-align">History Taking for <%= @patient.first_name %></h2>
+<h2 class="center-align">History Taking for <%= @patient.first_name + " " + @patient.last_name %></h2>
 
 
 <%= form_with scope: :consult, url: consults_path, local: true do |form| %>
 
   <div class="row">
     <div class="input-field col s12">
+  
       <%= form.text_field :user_id, :hidden => true, value: @patient.id %>
+
     </div>
   </div>
 
