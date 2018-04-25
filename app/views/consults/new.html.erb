@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="input-field col s12">
-      <%= form.text_field :user_id, :readonly => true, value: @patient.first_name %>
+      <%= form.text_field :user_id, :readonly => true, value: @patient.id %>
     </div>
   </div>
 
@@ -59,7 +59,7 @@
 
   <br>
 
-  <%= link_to 'Back', doctors_dashboard_path %>
+  <%= link_to 'Back', dashboard_path %>
 
 
 <script>
