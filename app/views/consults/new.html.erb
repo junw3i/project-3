@@ -1,9 +1,10 @@
 <h2 class="center-align">History Taking for <%= @patient.first_name + " " + @patient.last_name %></h2>
 
 <div class="row">
-<%= form_with scope: :consult, url: consults_path, local: true do |form| %>
-  <div class="col s8">
+  <div class="col s1">.</div>
+  <div class="col s6">
 
+  <%= form_with scope: :consult, url: consults_path, local: true do |form| %>
   <div class="text-forms">
   <div class="row">
     <div class="input-field col s12">
@@ -58,12 +59,10 @@
 </div>
 </div>
 <div class="col s4">
-
-  
       <iframe
         src="<%= @vid_path %>"
-        width=460
-        height=440
+        width=639
+        height=520
         allow="microphone; camera"
       ></iframe>
   </div>
