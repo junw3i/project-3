@@ -27,7 +27,7 @@
             <div class="patient-data">
               <%= link_to patient.first_name + " " + patient.last_name + " " +  patient.id_number.to_s, patient_path(patient.id), class: "patient-row"%>
             </div>
-            <%= link_to 'Consult', new_patient_consult_path(patient.id) %>
+            <%= link_to 'Consult', new_patient_consult_path(patient.id), class: "waves-effect waves-light btn-small" %>
           </li>
         <% end %>
       </ul>
