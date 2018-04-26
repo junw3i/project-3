@@ -1,15 +1,21 @@
 class RequestsController < ApplicationController
 	def create
   		@request = Request.new(request_params)
-  		@request.save
-  		redirect_to '/patient/video'
+			# byebug
+			if @request.save
+				queue_number = Request.all.size
+				flash[:notice] = "You are in queue number " + queue_number.to_s
+			else
+				flash[:notice] = "You are already in the queue for consultation"
+			end
+  		redirect_to patient_video_path
 	end
 
 
 	def destroy #I don't understand the routes and REST methods. I used POST to cancel.
   		@request = Request.find_by(request_params)
   		@request.destroy
- 
+
   		redirect_to '/dashboard'
 	end
 
