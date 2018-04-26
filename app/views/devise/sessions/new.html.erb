@@ -1,17 +1,17 @@
-<h1 class="center-align">Log in</h1>
+<h4 class="center-align">Log in</h4>
 <div class="container">
 <div class="text-forms">
 <div class="container">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="row">
+  <div class="row supf">
     <div class="input-field col s12">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row supf">
     <div class="input-field col s12">
       <%= f.label :password %>
       <%= f.password_field :password, autocomplete: "off" %>
@@ -35,7 +35,9 @@
   <% end %>
   </div>
 
-<%= render "devise/shared/links" %>
+<div class="row supf">
+<a class="btn waves-effect waves-light" href=<%= new_user_registration_path %>>Sign up</a>
+</div>
     </div>
   </div>
 </div>

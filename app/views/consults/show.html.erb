@@ -1,6 +1,6 @@
   <div class="container">
   <ul class="collection with-header">
-    <li class="collection-item"><h3 class="center-align">Consultation Summary</h3></li>
+    <li class="collection-item"><h4 class="center-align">Consultation Summary</h4></li>
     <li class="collection-item">   
   <p>
     <strong>Patient ID:</strong>
@@ -10,7 +10,7 @@
 
   <% if @role == 'doctor' %>
 
-  <li class="collection-item">
+  <li class="collection-item z-depth-2">
     <p>
       <strong>Consultation:</strong>
       <%= @consult.history %>
@@ -18,21 +18,21 @@
   <% end %>
     </li>
 
-<li class="collection-item">
+<li class="collection-item z-depth-2">
   <p>
     <strong>Prescription:</strong>
     <%= @consult.prescription %>
   </p>
 </li>
 
-<li class="collection-item">
+<li class="collection-item z-depth-2">
   <p>
     <strong>Number of days MC:</strong>
     <%= @consult.mc %>
   </p>
   </li>
 
-<li class="collection-item">
+<li class="collection-item z-depth-2">
   <p>
     <strong>Doctor ID:</strong>
     <%= @consult.doctor_id %>
@@ -41,5 +41,5 @@
 
 </ul>
 <br>
-<%= link_to 'Back', dashboard_path %>
+<a class="btn waves-effect waves-light" href=<%= dashboard_path %>>Back</a>
 </div>

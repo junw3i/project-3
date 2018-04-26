@@ -1,4 +1,4 @@
-<h2 class="center-align">History Taking for <%= @patient.first_name + " " + @patient.last_name %></h2>
+<h4 class="center-align">History Taking for <%= @patient.first_name + " " + @patient.last_name %></h4>
 
 <div class="row">
   <div class="col s1">.</div>
@@ -53,7 +53,7 @@
       <br>
       <br>
 
-  <%= link_to 'Back', dashboard_path %>
+  <a class="btn waves-effect waves-light" href=<%= dashboard_path %>>Back</a>
   </div>
 </div>
 </div>
