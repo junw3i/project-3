@@ -38,9 +38,13 @@ class ConsultsController < ApplicationController
 			end_date = DateTime.parse(@consult.mc_end)
 			mc = (end_date - start_date).ceil
 		end
-
 		@consult.mc = mc
 		@consult.save
+
+		@request = Request.where(user_id: @consult.user_id)
+		@request.first.destroy 
+		#.first.destroy because WHERE returns am array.
+		
 		redirect_to dashboard_path
 	end
 
