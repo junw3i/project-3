@@ -3,7 +3,7 @@
 <div class="row">
 <%= form_with scope: :consult, url: consults_path, local: true do |form| %>
   <div class="col s8">
-  
+
   <div class="text-forms">
   <div class="row">
     <div class="input-field col s12">
@@ -58,6 +58,7 @@
 </div>
 </div>
 <div class="col s4">
+
   
       <iframe
         src="<%= @vid_path %>"
@@ -66,17 +67,14 @@
         allow="microphone; camera"
       ></iframe>
   </div>
-
 </div>
 <script>
+
 $(document).ready(function(){
   let day = new Date();
-$('.datepicker').datepicker({
-  defaultDate: day,
-  setDefaultDate: true
-
+  $('.datepicker').datepicker({
+    defaultDate: day,
+    setDefaultDate: true
   });
-  // $('#consult_history').val('');
-
-  //
-  </script>
+});
+</script>

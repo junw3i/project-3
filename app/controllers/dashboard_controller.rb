@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
     #Getting queue details
     @queue = Request.all
 
-    # view will depends on role    
+    # view will depends on role
     if current_user.nil?
        redirect_to new_user_session_path
     else

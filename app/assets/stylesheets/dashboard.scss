@@ -35,5 +35,18 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%
+  width: 100%;
+  align-items: center;
+}
+
+#search-input {
+  padding-left: 10px;
+}
+
+.flexbox:hover {
+  background-color: $very-light-teal;
+}
+
+.patient-link {
+  display: block;
 }
