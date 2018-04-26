@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Patient magangement system app runs on RubyRails
 
-Things you may want to cover:
+## Bundle install
+before starting server
 
-* Ruby version
+Features:
 
-* System dependencies
+* Patient record keeping
+* Patient search
+* User Access Control list
+* Queue management system
+* Private Tele-Conferencing
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
