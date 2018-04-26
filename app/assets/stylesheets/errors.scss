@@ -1,0 +1,12 @@
+#error_explanation h2 {
+  font-size: $m-size;
+  padding-top: 10px;
+}
+
+#error_explanation li {
+  font-size: $s-size;
+}
+
+#error_explanation {
+  color: red;
+}
