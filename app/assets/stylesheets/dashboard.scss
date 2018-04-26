@@ -47,8 +47,30 @@ body {
   background-color: $very-light-teal;
 }
 
-.patient-link {
-  display: block;
+.queue {
+  background-color: $very-light-teal !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+
+.queue:hover {
+  background-color: white !important;
+}
+
+.patient-data > a{
+  color: black;
+}
+
+.collection {
+  border: 0;
+}
+
+.button-group {
+  display: flex;
+}
+
+.drop-form {
+  margin-right: 3px;
 }
 
 .row.supf {

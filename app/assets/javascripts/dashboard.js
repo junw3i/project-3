@@ -1,5 +1,5 @@
 
-$( document ).ready(function() {
+$(document).on('turbolinks:load', () => {
   let dates = $(".datetime");
   for (i=0; i<dates.length; i++) {
     let cleanTime = (dates[i].textContent).trim();
