@@ -22,6 +22,7 @@
       </div>
       <ul class="collection">
         <% @patients.each do |patient| %>
+
           <li class="collection-item avatar flexbox">
             <i class="material-icons circle">perm_identity</i>
             <div class="patient-data">
@@ -29,6 +30,7 @@
             </div>
             <%= link_to 'Consult', new_patient_consult_path(patient.id), class: "waves-effect waves-light btn-small" %>
           </li>
+          
         <% end %>
       </ul>
     </div>

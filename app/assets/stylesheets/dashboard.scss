@@ -42,3 +42,11 @@ body {
 #search-input {
   padding-left: 10px;
 }
+
+.flexbox:hover {
+  background-color: $very-light-teal;
+}
+
+.patient-link {
+  display: block;
+}
