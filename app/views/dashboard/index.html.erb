@@ -3,9 +3,23 @@
   <div class="queue-section">
     <div class="container">
       <h3 class="center-align dashboard-title"> Queue system </h3>
-      <p>There are currently <%= @queue_size %> patients in queue.</p>
 
-      <p>Click to begin consultation with <a href="/patient/<%= @first_in_line.user_id %>/consults/new">next patient</a></p></p>
+      <% if @queue.size == 0 %>
+      
+        <p>There are currently no patients in queue. Refresh the page to update.</p>
+
+      <% else %>      
+
+        <p>There are currently <%= @queue.size %> patients in queue.</p>
+        <ul>
+          <% @queue.each do |request| %>
+            <li>
+              - Begin consult with <a href="/patient/<%= request.user_id %>/consults/new">
+              <%= request.user.first_name %> <%= request.user.last_name %></a>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   </div>
 
