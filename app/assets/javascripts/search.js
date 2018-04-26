@@ -6,7 +6,7 @@ $( document ).ready(() => {
     // console.log("key pressed!");
     input = $("#search-input")[0].value;
     filter = input.toUpperCase();
-    let li = $(".flexbox");
+    let li = $(".pat-data");
 
     for (i = 0; i < li.length; i++) {
 
