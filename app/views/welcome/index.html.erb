@@ -1,34 +1,43 @@
+<div class="row"></div>
 <div class="container">
-<h1>Hello, Doctor!</h1>
 
-<% if user_signed_in? %>
-<%= link_to 'log out', destroy_user_session_path, method: :delete %>
-<% end %>
+<div class="slider">
+    <ul class="slides">
+      <li>
+        <%= image_tag("slider2.jpg") %>
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <%= image_tag("slider3.jpg") %>
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/3">
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/4">
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-For ease of access links below:
-<p>
-<a href='/users/sign_in'>Log in</a></p>
-
-<p><a href='/patient/dashboard'>Patient Dashboard</a>
-This is a conditional view as well
-
-<p>
-  REMOVED BY JUNWEI
-  <strike>
-    Nobody is suppose to see this, it will be removed when pushed into production
-    <a href='/consults'>List of all consults</a><br>
-  </strike>
-
-
-
-Conditional view for consults is done.
-If not logged in cannot view '/consults/3'
-
-doctor can see all, patient see own consult.
-</p>
-
-
-
-<p>
-<%= link_to "Doctor's Dashboard", dashboard_path %>
 </div>
+
+<script>
+  $(document).ready(function(){
+    $('.slider').slider();
+  });
+</script>
