@@ -14,6 +14,7 @@ class DashboardController < ApplicationController
         @patients = User.where(role: 'patient').order(first_name: :asc)
       elsif @role == "patient"
         @output = User.find(current_user.id).consult.order(created_at: :desc)
+        @in_queue = @queue.any? { |req| req[:user_id] == current_user.id }
       end
     end
   end

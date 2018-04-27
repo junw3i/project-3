@@ -19,7 +19,7 @@ body {
 .queue-section {
   background-color: #B2DFDB;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 }
 
 .patient-dashboard-section {
@@ -71,8 +71,21 @@ body {
 
 .drop-form {
   margin-right: 3px;
+  display: inline;
 }
 
 .row.supf {
     padding: 10px;
+}
+
+.patient-form {
+  display: inline;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0px;
+}
+
+.margin-right {
+  margin-right: 5px;
 }

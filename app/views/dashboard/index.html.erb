@@ -4,13 +4,11 @@
       <h3 class="center-align dashboard-title"> Patient Queue </h3>
 
       <% if @queue.size == 0 %>
-
         <p>There are currently no patients in queue. Refresh the page to update.</p>
-
       <% else %>
 
         <p>There are currently <%= @queue.size %> patients in queue.</p>
-        <ul class="collection">
+        <ul class="collection no-bottom-margin">
           <% @queue.each do |request| %>
             <li class="collection-item avatar flexbox queue">
               <i class="material-icons circle">perm_identity</i>
@@ -18,12 +16,25 @@
                 <%= link_to request.user.first_name + " " + request.user.last_name + " " +  request.user.id_number.to_s, patient_path(request.user_id), class: "patient-row"%>
               </div>
               <div class="button-group">
-                <%= form_with scope: :request, url: requests_cancel_path, local: true, class: "drop-form" do |form| %>
-                <%= form.text_field :user_id, :hidden => true, value: request.user_id %>
-                <a class="red waves-effect waves-light btn-small"><%= form.submit('Drop Queue') %></a>
-                <% end %>
+                <a class="waves-effect waves-light btn-small red modal-trigger margin-right" href="#cancel">Drop Queue</a>
 
                 <%= link_to 'Consult', new_patient_consult_path(request.user_id), class: "waves-effect waves-light btn-small" %>
+
+                <!-- Modal Structure START-->
+                <div id="cancel" class="modal">
+                  <div class="modal-content">
+                    <p>Are you sure?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="" class="modal-action modal-close waves-effect waves-green btn-small">Keep Queue</a>
+                    <%= form_with scope: :request, url: requests_cancel_path, local: true, class: "drop-form" do |form| %>
+                      <%= form.text_field :user_id, :hidden => true, value: request.user_id %>
+                    <a class="red waves-effect waves-light btn-small"><%= form.submit('Drop Queue') %></a>
+                    <% end %>
+                  </div>
+                </div>
+                <!-- Modal Structure  END-->
+
               </div>
             </li>
           <% end %>
@@ -62,24 +73,49 @@
   </div>
 
 <% else %>
-<div class="container">
-  <h4>Queue system</h4>
 
-  <p>There are currently <%= @queue.size %> patients in queue.</p>
-  <div>
-  <%= form_with scope: :request, url: '/requests', local: true do |form| %>
-    <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
-    <a class="waves-effect waves-light btn-small"><%= form.submit('Request Consultation') %></a>
-  <% end %></div>
-<br>
-  <div>
-    <%= form_with scope: :request, url: '/requests/cancel', local: true do |form| %>
-      <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
-      <a class="waves-effect waves-light btn-small"><%= form.submit('Cancel Request') %></a>
+<div class="queue-section">
+  <div class="container">
+    <h4 class="center-align">Queue system</h4>
+
+    <% if @queue.size == 1 %>
+      <p>
+        There are <%= @queue.size %> patient in queue.
+      </p>
+    <% else %>
+      <p>
+        There are <%= @queue.size %> patients in queue.
+      </p>
     <% end %>
+
+        <%= form_with scope: :request, url: '/requests', local: true, class: "patient-form" do |form| %>
+        <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+        <a class="waves-effect waves-light btn-small"><%= form.submit('Request Consultation') %></a>
+        <% end %>
+
+        <% if @in_queue %>
+          <!-- Modal Trigger -->
+          <a class="waves-effect waves-light btn-small red modal-trigger" href="#cancel">Cancel Consultation</a>
+        <% end %>
+
+        <!-- Modal Structure -->
+        <div id="cancel" class="modal">
+          <div class="modal-content">
+            <p>Are you sure you want to cancel your consultation?</p>
+          </div>
+          <div class="modal-footer">
+            <a href="" class="modal-action modal-close waves-effect waves-green btn-small">Keep Consultation</a>
+            <%= form_with scope: :request, url: '/requests/cancel', local: true, class: "patient-form" do |form| %>
+            <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+            <a class="waves-effect waves-light red btn-small"><%= form.submit('Cancel Consultation') %></a>
+            <% end %>
+          </div>
+        </div>
+
+    </div>
   </div>
 
-
+<div class="container">
   <h4 class="center-align">Consultation History</h4>
     <ul class="collection">
       <% @output.each do |consult| %>
