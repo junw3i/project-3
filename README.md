@@ -1,3 +1,5 @@
+![Coveralls github](https://img.shields.io/coveralls/github/jekyll/jekyll.svg)
+
 # README
 
 Patient magangement system app runs on RubyRails
