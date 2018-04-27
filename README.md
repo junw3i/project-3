@@ -1,4 +1,5 @@
 ![Coveralls github](https://img.shields.io/coveralls/github/jekyll/jekyll.svg)
+https://coveralls.io/repos/junw3i/project-3/badge.png
 
 # README
 
