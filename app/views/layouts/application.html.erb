@@ -19,7 +19,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <style>
-    #nav-logo {
+    .nav-logo {
       margin-top: 3px;
       margin-left: 5px;
     }
@@ -29,7 +29,7 @@
   <body>
   <nav>
     <div class="nav-wrapper teal">
-      <a href="/"><img id="nav-logo" src="pms-logo.png" height="58"></a>
+      <a href="/"><img class="nav-logo" src="../../pms-logo.png" height="58"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><%= link_to 'Dashboard', dashboard_path %></li>
