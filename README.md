@@ -1,4 +1,4 @@
-![Coveralls github](https://coveralls.io/repos/junw3i/project-3/badge.png)
+[![Coverage Status](https://coveralls.io/repos/github/junw3i/project-3/badge.svg?branch=master)](https://coveralls.io/github/junw3i/project-3?branch=master)
 
 # README
 
