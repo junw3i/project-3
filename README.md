@@ -1,3 +1,4 @@
+https://travis-ci.org/junw3i/project-3.svg?branch=master
 [![Coverage Status](https://coveralls.io/repos/github/junw3i/project-3/badge.svg?branch=master)](https://coveralls.io/github/junw3i/project-3?branch=master)
 
 # README
