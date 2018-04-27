@@ -14,11 +14,10 @@ class RequestsController < ApplicationController
 
 	def destroy #I don't understand the routes and REST methods. I used POST to cancel.
   		@request = Request.find_by(request_params) || "nil"
-
   		unless @request == "nil"
   			@request.destroy
+				flash[:notice] = "Consultation request cancelled"
   		end
-
   		redirect_to '/dashboard'
 	end
 

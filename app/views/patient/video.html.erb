@@ -9,7 +9,20 @@
       ></iframe>
   </div>
 
-  <%= form_with scope: :request, url: '/requests/cancel', local: true do |form| %>
-    <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
-    <%= form.submit('Cancel Request') %>
-  <% end %>
+  <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn-small red modal-trigger" href="#cancel">Cancel Consultation</a>
+
+  <!-- Modal Structure -->
+  <div id="cancel" class="modal">
+    <div class="modal-content">
+      <!-- <h4>Modal Header</h4> -->
+      <p>Are you sure you want to cancel your consultation?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="" class="modal-action modal-close waves-effect waves-green btn-small">Keep Consultation</a>
+      <%= form_with scope: :request, url: '/requests/cancel', local: true, class: "patient-form" do |form| %>
+      <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+      <a class="waves-effect waves-light red btn-small"><%= form.submit('Cancel Consultation') %></a>
+      <% end %>
+    </div>
+  </div>
