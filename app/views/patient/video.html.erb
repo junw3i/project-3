@@ -1,28 +1,37 @@
-  <h2>Please kindly wait for the doctor to connect... </h2>
+<br>
+<div class="row">
+  <div class="container">
+    <h6>Please kindly wait for the doctor to connect...</h6>
 
-  <div class="row">
+
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn-small red modal-trigger" href="#cancel">Cancel Consultation</a>
+
+    <!-- Modal Structure -->
+    <div id="cancel" class="modal">
+      <div class="modal-content">
+        <!-- <h4>Modal Header</h4> -->
+        <p>Are you sure you want to cancel your consultation?<br>
+          You will lose your current queue number if you do.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="modal-action modal-close waves-effect waves-green btn-small">Keep Consultation</a>
+        <%= form_with scope: :request, url: '/requests/cancel', local: true, class: "patient-form" do |form| %>
+        <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+        <a class="waves-effect waves-light red btn-small"><%= form.submit('Cancel Consultation') %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
       <iframe
         src="<%= @vid_path %>"
         width=640
         height=480
         allow="microphone; camera"
       ></iframe>
-  </div>
-
-  <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn-small red modal-trigger" href="#cancel">Cancel Consultation</a>
-
-  <!-- Modal Structure -->
-  <div id="cancel" class="modal">
-    <div class="modal-content">
-      <!-- <h4>Modal Header</h4> -->
-      <p>Are you sure you want to cancel your consultation?</p>
-    </div>
-    <div class="modal-footer">
-      <a href="" class="modal-action modal-close waves-effect waves-green btn-small">Keep Consultation</a>
-      <%= form_with scope: :request, url: '/requests/cancel', local: true, class: "patient-form" do |form| %>
-      <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
-      <a class="waves-effect waves-light red btn-small"><%= form.submit('Cancel Consultation') %></a>
-      <% end %>
-    </div>
-  </div>
+</div>
