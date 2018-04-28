@@ -7,7 +7,7 @@
         <p>There are currently no patients in queue. Refresh the page to update.</p>
       <% else %>
 
-        <p>There are currently <%= @queue.size %> patients in queue.</p>
+        <p>There are currently <%= @queue.size %> patient(s) in queue.</p>
         <ul class="collection no-bottom-margin">
           <% @queue.each do |request| %>
             <li class="collection-item avatar flexbox queue">
