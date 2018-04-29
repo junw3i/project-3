@@ -21,6 +21,7 @@ class ConsultsController < ApplicationController
 		else
 			@vid_path = 'https://demo.mediasoup.org/?roomId=pms' + params[:patient_id].to_s
 			@patient = User.find(params[:patient_id])
+			@request_data = Request.find_by(user_id: params[:patient_id])
 			@user = current_user
 			if @user.role != "doctor"
 				redirect_to root_path

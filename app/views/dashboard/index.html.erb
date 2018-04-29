@@ -88,17 +88,18 @@
       </p>
     <% end %>
 
-        <%= form_with scope: :request, url: '/requests', local: true, class: "patient-form" do |form| %>
-        <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
-        <a class="waves-effect waves-light btn-small"><%= form.submit('Request Consultation') %></a>
-        <% end %>
+
 
         <% if @in_queue %>
-          <!-- Modal Trigger -->
+          <%= link_to 'Waiting Area', patient_video_path,  class: "waves-effect waves-light btn-small" %>
+          <!-- Modal Trigger for Cancellation-->
           <a class="waves-effect waves-light btn-small red modal-trigger" href="#cancel">Cancel Consultation</a>
+        <% else %>
+          <!-- Modal Trigger for Request-->
+          <a class="waves-effect waves-light btn-small modal-trigger" href="#request">Request Consultation</a>
         <% end %>
 
-        <!-- Modal Structure -->
+        <!-- Modal Structure for Cancellation -->
         <div id="cancel" class="modal">
           <div class="modal-content">
             <p>Are you sure you want to cancel your consultation?</p>
@@ -109,6 +110,21 @@
             <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
             <a class="waves-effect waves-light red btn-small"><%= form.submit('Cancel Consultation') %></a>
             <% end %>
+          </div>
+        </div>
+
+        <!-- Modal Structure for Request -->
+        <div id="request" class="modal">
+          <div class="modal-content">
+          <%= form_with scope: :request, url: '/requests', local: true, class: "patient-form" do |form| %>
+            <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+            <div class="input-field col s12">
+              <h5>Reason for Consultation</h5>
+              <%= form.text_area :description, class: 'materialize-textarea', placeholder: "E.g. I vomitted three times last night!" %>
+            </div>
+            <a class="waves-effect waves-light btn-small"><%= form.submit('Request Consultation') %></a>
+            <%= link_to 'Cancel', dashboard_path,  class: "waves-effect waves-light btn-small" %>
+          <% end %>
           </div>
         </div>
 
