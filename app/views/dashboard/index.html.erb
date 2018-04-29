@@ -7,7 +7,7 @@
         <p>There are currently no patients in queue. Refresh the page to update.</p>
       <% else %>
 
-        <p>There are currently <%= @queue.size %> patients in queue.</p>
+        <p>There are currently <%= @queue.size %> patient(s) in queue.</p>
         <ul class="collection no-bottom-margin">
           <% @queue.each do |request| %>
             <li class="collection-item avatar flexbox queue">
@@ -78,9 +78,10 @@
   <div class="container">
     <h4 class="center-align">Queue system</h4>
 
-    <% if @queue.size == 1 %>
+    <div class="row">
+    <div class="col s6">
       <p>
-        There are <%= @queue.size %> patient in queue.
+        There are <%= @queue.size %> patient(s) in queue.
       </p>
     <% else %>
       <p>
@@ -98,11 +99,19 @@
           <!-- Modal Trigger for Request-->
           <a class="waves-effect waves-light btn-small modal-trigger" href="#request">Request Consultation</a>
         <% end %>
+        </div>
+        <div class="col s6 center-align">
+        <p class="right-align">Book appointment</p>
+        <input type="text" class="datepicker col s6 offset-s6">
+        </div>
+        </div>
 
         <!-- Modal Structure for Cancellation -->
         <div id="cancel" class="modal">
           <div class="modal-content">
-            <p>Are you sure you want to cancel your consultation?</p>
+            <p>Are you sure you want to cancel your consultation?<br>
+              You will start lose your current queue numer if you do.
+            </p>
           </div>
           <div class="modal-footer">
             <a href="" class="modal-action modal-close waves-effect waves-green btn-small">Keep Consultation</a>
@@ -145,3 +154,13 @@
     <br>
 <% end %>
 </div>
+
+<script>
+$(document).ready(function(){
+  let day = new Date();
+  $('.datepicker').datepicker({
+    defaultDate: day,
+    setDefaultDate: true
+  });
+});
+</script>
