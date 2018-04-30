@@ -1,8 +1,9 @@
 class DashboardController < ApplicationController
   def create_appointment
-    user_appointment = User.find(current_user.id)
-
-    user_appointment.appointment_date = params[:appointment_date]
+    user_appointment = User.find(current_user.id)  
+    user_appointment.appointment_date = params[:appointment][:appointment_date]
+    user_appointment.save
+    redirect_to dashboard_path
   end
 
   def index
@@ -26,7 +27,7 @@ class DashboardController < ApplicationController
   end
 	private
   		def appointment_params
-    		params.require(:appointment).permit(:appointment_date)
+    		params.require(:appointment).permit(:user_id, :appointment_date)
 	  	end
 
 end
