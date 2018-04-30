@@ -1,8 +1,16 @@
 class DashboardController < ApplicationController
   def index
-
+    
     #Getting queue details
     @queue = Request.all
+    
+    @in_queue = @queue.any? { |req| req[:user_id] == current_user.id }
+    if @in_queue
+      current_req = Request.find_by(user: current_user).id
+      sqlcmd = "SELECT * FROM requests WHERE id < " + current_req.to_s
+      @front = Request.find_by_sql(sqlcmd)
+    end
+    
 
     # view will depends on role
     if current_user.nil?
