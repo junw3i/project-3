@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get 'dashboard', to: 'dashboard#index'
+  post 'dashboard', to: 'dashboard#create_appointment'
   get '/patient/video', to: 'patient#video'
 
   post 'requests', to: 'requests#create'
