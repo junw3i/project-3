@@ -98,8 +98,7 @@
         <%= form_with scope: :appointment, url: dashboard_path, local: true do |form| %>
         <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
         <input type="text" class="datepicker col s6 offset-s6" name="user[appointment_date]" id="user_appointment_date">
-        <a class="waves-effect waves-light small btn right-align">
-        <i class="material-icons left">save</i>
+        <a class="waves-effect waves-light btn-small right-align">
         <%= form.submit %>
         <% end %>
         </a>
