@@ -13,5 +13,5 @@ class User < ApplicationRecord
   validates :id_number, presence: true, length: { is: 9 }
 
   has_many :consult
-
+  has_many :request 
 end

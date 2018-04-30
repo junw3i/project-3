@@ -1,8 +1,13 @@
 <br>
 <div class="row">
   <div class="container">
-    <h6>Please kindly wait for the doctor to connect...</h6>
-
+    <% if @front.size == 0 %>
+      <h6>You are first in line, Please kindly wait for the doctor to connect...</h6>
+    <% else %>
+      <h6>There are <%= @front.size %> patient(s) in front of you, Please kindly wait for the doctor to connect...</h6>
+    <% end %>
+    
+    <h6>Total patients in queue: <%= @requests.size %> </h6>
 
     <!-- Modal Trigger -->
     <a class="waves-effect waves-light btn-small red modal-trigger" href="#cancel">Cancel Consultation</a>
