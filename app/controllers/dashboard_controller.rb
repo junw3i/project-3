@@ -1,4 +1,10 @@
 class DashboardController < ApplicationController
+  def create_appointment
+    user_appointment = User.find(current_user.id)
+
+    user_appointment.appointment_date = params[:appointment_date]
+  end
+
   def index
 
     #Getting queue details
@@ -18,4 +24,9 @@ class DashboardController < ApplicationController
       end
     end
   end
+	private
+  		def appointment_params
+    		params.require(:appointment).permit(:appointment_date)
+	  	end
+
 end
