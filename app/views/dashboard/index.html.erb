@@ -6,8 +6,12 @@
       <% if @queue.size == 0 %>
         <p>There are currently no patients in queue. Refresh the page to update.</p>
       <% else %>
-
-        <p>There are currently <%= @queue.size %> patient(s) in queue.</p>
+        <% if @queue.size == 1 %>
+          <p>There is currently 1 patient in queue. Refresh the page to update.</p>
+        <% else %>
+          <p>There are currently <%= @queue.size %> patients in queue. Refresh the page to update.</p>
+        <% end %>
+        
         <ul class="collection no-bottom-margin">
           <% @queue.each do |request| %>
             <li class="collection-item avatar flexbox queue">
@@ -80,32 +84,46 @@
 
     <div class="row">
     <div class="col s6">
+    <% if @queue.size == 1 %>
       <p>
-        There are <%= @queue.size %> patient(s) in queue.
+        There is only 1 patient in queue.
       </p>
-        <%= form_with scope: :request, url: '/requests', local: true, class: "patient-form" do |form| %>
-        <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
-        <a class="waves-effect waves-light btn-small left-align"><%= form.submit('Request Consultation') %></a>
-        <% end %>
+    <% else %>
+      <p>
+        There are <%= @queue.size %> patients in queue.
+      </p>
+    <% end %>
+
+
 
         <% if @in_queue %>
-          <!-- Modal Trigger -->
-          <a class="waves-effect waves-light btn-small red modal-trigger left-align" href="#cancel">Cancel Consultation</a>
+          <%= link_to 'Waiting Area', patient_video_path,  class: "waves-effect waves-light btn-small" %>
+          <!-- Modal Trigger for Cancellation-->
+          <a class="waves-effect waves-light btn-small red modal-trigger" href="#cancel">Cancel Consultation</a>
+        <% else %>
+          <!-- Modal Trigger for Request-->
+          <a class="waves-effect waves-light btn-small modal-trigger" href="#request">Request Consultation</a>
         <% end %>
         </div>
         <div class="col s6 center-align">
         <p class="right-align">Appointment date</p>
         <%= form_with scope: :appointment, url: dashboard_path, local: true do |form| %>
         <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+<<<<<<< HEAD
         <input type="text" class="datepicker col s6 offset-s6" name="user[appointment_date]" id="user_appointment_date">
         <a class="waves-effect waves-light btn-small right-align">
+=======
+        <input type="text" class="datepicker col s6 offset-s6" name="appointment[appointment_date]" id="appointment_appointment_date">
+        <a class="waves-effect waves-light small btn right-align">
+        <i class="material-icons left">save</i>
+>>>>>>> 6d5d5126135c6e4387ea50f185aef8bb102550c2
         <%= form.submit %>
         <% end %>
         </a>
         </div>
         </div>
 
-        <!-- Modal Structure -->
+        <!-- Modal Structure for Cancellation -->
         <div id="cancel" class="modal">
           <div class="modal-content">
             <p>Are you sure you want to cancel your consultation?<br>
@@ -118,6 +136,21 @@
             <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
             <a class="waves-effect waves-light red btn-small"><%= form.submit('Cancel Consultation') %></a>
             <% end %>
+          </div>
+        </div>
+
+        <!-- Modal Structure for Request -->
+        <div id="request" class="modal">
+          <div class="modal-content">
+          <%= form_with scope: :request, url: '/requests', local: true, class: "patient-form" do |form| %>
+            <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+            <div class="input-field col s12">
+              <h5>Reason for Consultation</h5>
+              <%= form.text_area :description, class: 'materialize-textarea', placeholder: "E.g. I vomitted three times last night!" %>
+            </div>
+            <a class="waves-effect waves-light btn-small"><%= form.submit('Request Consultation') %></a>
+            <%= link_to 'Cancel', dashboard_path,  class: "waves-effect waves-light btn-small" %>
+          <% end %>
           </div>
         </div>
 

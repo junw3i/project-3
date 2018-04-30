@@ -9,3 +9,17 @@ textarea#consult_history {
 textarea#consult_prescription {
     overflow-y: scroll;
 }
+
+.patient-description {
+    background-color: #E0E0E0;
+}
+
+.patient-description {
+    border: 1px solid #757575;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

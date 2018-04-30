@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2018_04_29_114649) do
+=======
 ActiveRecord::Schema.define(version: 2018_04_28_181519) do
+>>>>>>> daa0aaa4029875aa10e08323d3f5908cacb4ffa0
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_04_28_181519) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
