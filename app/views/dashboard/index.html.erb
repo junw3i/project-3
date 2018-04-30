@@ -6,8 +6,12 @@
       <% if @queue.size == 0 %>
         <p>There are currently no patients in queue. Refresh the page to update.</p>
       <% else %>
-
-        <p>There are currently <%= @queue.size %> patient(s) in queue.</p>
+        <% if @queue.size == 1 %>
+          <p>There is currently 1 patient in queue. Refresh the page to update.</p>
+        <% else %>
+          <p>There are currently <%= @queue.size %> patients in queue. Refresh the page to update.</p>
+        <% end %>
+        
         <ul class="collection no-bottom-margin">
           <% @queue.each do |request| %>
             <li class="collection-item avatar flexbox queue">
@@ -80,8 +84,9 @@
 
     <div class="row">
     <div class="col s6">
+    <% if @queue.size == 1 %>
       <p>
-        There are <%= @queue.size %> patient(s) in queue.
+        There is only 1 patient in queue.
       </p>
     <% else %>
       <p>
