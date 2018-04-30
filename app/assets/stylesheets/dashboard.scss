@@ -89,3 +89,20 @@ body {
 .margin-right {
   margin-right: 5px;
 }
+
+
+@media #{$small-and-down} {
+  #hometext {
+    width: 100%;
+    display: block;
+  }
+
+  #homeslider {
+    width: 100%;
+    display: block;
+  }
+
+  .nav-logo {
+    height: 50px;
+  }
+}
