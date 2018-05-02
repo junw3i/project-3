@@ -1,7 +1,7 @@
 <% if @role=="doctor" %>
   <div class="queue-section">
     <div class="container">
-      <h3 class="center-align dashboard-title"> Patient Queue </h3>
+      <h5 class="center-align dashboard-title"> Patient Queue </h5>
 
       <% if @queue.size == 0 %>
         <p>There are currently no patients in queue. Refresh the page to update.</p>
@@ -11,7 +11,7 @@
         <% else %>
           <p>There are currently <%= @queue.size %> patients in queue. Refresh the page to update.</p>
         <% end %>
-        
+
         <ul class="collection no-bottom-margin">
           <% @queue.each do |request| %>
             <li class="collection-item avatar flexbox queue">
@@ -49,10 +49,10 @@
 
   <div class="patient-dashboard-section">
     <div class="container">
-      <h3 class="center-align dashboard-title">Patient List</h3>
+      <h5 class="center-align dashboard-title">Patient List</h5>
       <div class="row">
         <div class="col s12">
-          <h5>Search Patient</h5>
+          <h6>Search Patient</h6>
           <div class="input-field">
             <input class="white autocomplete" placeholder="Name or ID Number" type="text" id="search-input">
           </div>
@@ -80,20 +80,18 @@
 
 <div class="queue-section">
   <div class="container">
-    <h4 class="center-align">Queue system</h4>
+    <h5 class="center-align">Consultation Registration</h5>
 
     <div class="row">
     <div class="col s6">
-    <% if @queue.size == 1 %>
-      <p>
-        There is only 1 patient in queue.
-      </p>
-    <% else %>
-      <p>
-        There are <%= @queue.size %> patients in queue.
-      </p>
-    <% end %>
 
+    <p>
+    <% if @in_queue && @front.size == 0 %>
+      You are first in line,
+    <% elsif @in_queue %>
+      There are <%= @front.size %> patient(s) in front of you,
+    <% end %>
+      <br>Total patients in queue : <%= @queue.size %> </p>
 
 
         <% if @in_queue %>
@@ -106,7 +104,8 @@
         <% end %>
         </div>
         <div class="col s6 center-align">
-        <p class="right-align">Appointment date</p>
+
+        <p class="right-align">Schedule a Consultation</p>
         <%= form_with scope: :appointment, url: dashboard_path, local: true do |form| %>
         <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
         <input type="text" class="datepicker col s6 offset-s6" name="appointment[appointment_date]" id="appointment_appointment_date">
@@ -154,7 +153,7 @@
   </div>
 
 <div class="container">
-  <h4 class="center-align">Consultation History</h4>
+  <h5 class="center-align">Consultation History</h5>
     <ul class="collection">
       <% @output.each do |consult| %>
         <li class="collection-item avatar">
