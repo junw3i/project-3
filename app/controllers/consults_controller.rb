@@ -49,6 +49,12 @@ class ConsultsController < ApplicationController
 		redirect_to dashboard_path
 	end
 
+	def api
+		@api = Consult.find(params[:id])
+		@api.history = nil	
+		render json: @api
+	end
+
 	private
   		def consult_params
     		params.require(:consult).permit(:user_id, :history, :prescription, :mc_start, :mc_end, :doctor_id)
