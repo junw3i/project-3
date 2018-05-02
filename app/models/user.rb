@@ -5,9 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, uniqueness: true, presence: true
-  validates :password, presence: true
-  validates :first_name, :last_name, presence: true, format: { with: /\A[a-zA-Z]+\z/,
-    message: "only allows letters" }
+  validates :first_name, :last_name, presence: true
   validates :mobile, length: { is: 8 }, numericality: { only_integer: true }
   validates :gender, presence: true
   validates :id_number, presence: true, length: { is: 9 }

@@ -104,8 +104,17 @@
         <% end %>
         </div>
         <div class="col s6 center-align">
+
         <p class="right-align">Schedule a Consultation</p>
-        <input type="text" class="datepicker col s6 offset-s6">
+        <%= form_with scope: :appointment, url: dashboard_path, local: true do |form| %>
+        <%= form.text_field :user_id, :hidden => true, value: current_user.id %>
+        <input type="text" class="datepicker col s6 offset-s6" name="appointment[appointment_date]" id="appointment_appointment_date">
+        <div class="row">
+        <a class="waves-effect waves-light btn-small right-align">
+        <%= form.submit %>
+        <% end %>
+        </a>
+        </div>
         </div>
         </div>
 
