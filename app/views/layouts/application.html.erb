@@ -32,8 +32,8 @@
       <a href="/"><img class="nav-logo" src="../../../../pms-logo.png" height="58"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><%= link_to 'Dashboard', dashboard_path %></li>
         <% if user_signed_in? %>
+          <li><%= link_to 'Dashboard', dashboard_path %></li>
           <li><%= link_to "Change Password", edit_user_registration_path %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
         <% else %>
