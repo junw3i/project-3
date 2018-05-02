@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   #I don't understand the routes and REST methods. I used POST to cancel.
   post 'requests/cancel', to: 'requests#destroy'
 
+  get 'api/consults/:id', to: 'consults#api'
+
   resources :consults
   resources :patient do
     resources :consults
