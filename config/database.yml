@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: project-3_production
+  database: project-3_development
   username: project-3
   password: <%= ENV['PROJECT-3_DATABASE_PASSWORD'] %>
